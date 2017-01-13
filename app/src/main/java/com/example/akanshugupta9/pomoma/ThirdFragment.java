@@ -17,9 +17,6 @@ public class ThirdFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.third_frag, container, false);
 
-        TextView tv = (TextView) v.findViewById(R.id.tvFragThird);
-        tv.setText(getArguments().getString("msg"));
-
         return v;
     }
 
