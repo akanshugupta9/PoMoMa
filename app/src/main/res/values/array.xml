@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="Denomination">
+        <item>Rs.</item>
+        <item>Dl.</item>
+        <item>Eu.</item>
+    </string-array>
+
+    <string-array name="denominationAlias">
+        <item>r</item>
+        <item>d</item>
+        <item>e</item>
+    </string-array>
+
+    <string-array name="Frequency">
+        <item>Daily</item>
+        <item>Weekly</item>
+        <item>Monthly</item>
+    </string-array>
+
+    <string-array name="frequencyAlias">
+        <item>d</item>
+        <item>w</item>
+        <item>m</item>
+    </string-array>
+
+</resources>

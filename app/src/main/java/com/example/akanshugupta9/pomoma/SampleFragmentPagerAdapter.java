@@ -9,8 +9,8 @@ import android.support.v4.app.FragmentPagerAdapter;
  */
 
 public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
-    final int PAGE_COUNT = 3;
-    private String tabTitles[] = new String[] { "Tab1", "Tab2", "Tab3" };
+    final int PAGE_COUNT = 4;
+    private String tabTitles[] = new String[] { "Available", "Spend", "Recieve", "History" };
 
     public SampleFragmentPagerAdapter(FragmentManager fm) {
         super(fm);
@@ -23,7 +23,14 @@ public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return PageFragment.newInstance(position + 1);
+        switch(position) {
+
+            case 0: return FirstFragment.newInstance("FirstFragment, Instance 1");
+            case 1: return SecondFragment.newInstance("SecondFragment, Instance 1");
+            case 2: return ThirdFragment.newInstance("ThirdFragment, Instance 1");
+            case 3: return FourthFragment.newInstance("ThirdFragment, Instance 2");
+            default: return DefaultFragment.newInstance("ThirdFragment, Default");
+        }
     }
 
     @Override
