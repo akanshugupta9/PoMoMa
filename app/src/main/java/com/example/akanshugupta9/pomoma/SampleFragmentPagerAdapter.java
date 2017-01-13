@@ -28,7 +28,7 @@ public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
             case 0: return FirstFragment.newInstance("FirstFragment, Instance 1");
             case 1: return SecondFragment.newInstance("SecondFragment, Instance 1");
             case 2: return ThirdFragment.newInstance("ThirdFragment, Instance 1");
-            case 3: return FourthFragment.newInstance("ThirdFragment, Instance 2");
+            case 3: return new FourthFragment();
             default: return DefaultFragment.newInstance("ThirdFragment, Default");
         }
     }
