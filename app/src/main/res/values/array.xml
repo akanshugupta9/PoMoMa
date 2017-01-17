@@ -25,9 +25,5 @@
         <item>m</item>
     </string-array>
 
-    <string-array name="popupForm">
-        <item>Spend</item>
-        <item>Recieve</item>
-    </string-array>
 
 </resources>

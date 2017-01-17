@@ -9,16 +9,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 /**
  * Created by akanshugupta9 on 13/1/17.
  */
 
 public class HistoryCustomAdapter extends BaseAdapter {
-    String [] amountList, dateList, summaryList, categoryList;
+    ArrayList<String> summaryList;
+    ArrayList<String> dateList;
+    ArrayList<Integer> categoryList;
+    ArrayList<Float> amountList;
     Context context;
-    int [] imageId;
     private static LayoutInflater inflater=null;
-    public HistoryCustomAdapter(MainActivity mainActivity, String[] amountList, String[] categoryList, String[] summaryList, String[] dateList) {
+    public HistoryCustomAdapter(MainActivity mainActivity, ArrayList<Float> amountList, ArrayList<Integer> categoryList, ArrayList<String> summaryList, ArrayList<String> dateList) {
         // TODO Auto-generated constructor stub
         this.categoryList=categoryList;
         this.amountList=amountList;
@@ -31,7 +36,9 @@ public class HistoryCustomAdapter extends BaseAdapter {
     @Override
     public int getCount() {
         // TODO Auto-generated method stub
-        return categoryList.length;
+        if(amountList!=null)
+        return amountList.size();
+        else return 0;
     }
 
     @Override
@@ -56,21 +63,17 @@ public class HistoryCustomAdapter extends BaseAdapter {
         Holder holder=new Holder();
         View rowView;
         rowView = inflater.inflate(R.layout.history_list, null);
-        holder.amountTv=(TextView) rowView.findViewById(R.id.amount);
-        holder.summaryTv=(TextView) rowView.findViewById(R.id.summary);
-        holder.dateTv=(TextView) rowView.findViewById(R.id.date);
-        holder.categoryTv=(TextView) rowView.findViewById(R.id.category);
-        holder.amountTv.setText(amountList[position]);
-        holder.summaryTv.setText(summaryList[position]);
-        holder.dateTv.setText(dateList[position]);
-        holder.categoryTv.setText(categoryList[position]);
-        rowView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // TODO Auto-generated method stub
-                Toast.makeText(context, "You Clicked "+summaryList[position], Toast.LENGTH_LONG).show();
-            }
-        });
+        if(getCount()!=0) {
+            holder.amountTv = (TextView) rowView.findViewById(R.id.amount);
+            holder.summaryTv = (TextView) rowView.findViewById(R.id.summary);
+            holder.dateTv = (TextView) rowView.findViewById(R.id.date);
+            holder.categoryTv = (TextView) rowView.findViewById(R.id.category);
+            holder.amountTv.setText(Float.toString(amountList.get(position)));
+            holder.summaryTv.setText(summaryList.get(position));
+            String[] tmp = dateList.get(position).split(" ");
+            holder.dateTv.setText(tmp[0]+" "+tmp[1]+" "+tmp[2]);
+            holder.categoryTv.setText(Integer.toString(categoryList.get(position)));
+        }
         return rowView;
     }
 

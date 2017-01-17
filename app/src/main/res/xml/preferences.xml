@@ -2,6 +2,7 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <ListPreference
+        android:defaultValue="Rs."
         android:key="denomination_preference"
         android:title="Denomination"
         android:entries="@array/Denomination"
@@ -14,6 +15,7 @@
         android:inputType="number" />
 
     <ListPreference
+        android:defaultValue="Daily"
         android:key="frequency_preference"
         android:title="Pocket Money Frequency"
         android:entries="@array/Frequency"

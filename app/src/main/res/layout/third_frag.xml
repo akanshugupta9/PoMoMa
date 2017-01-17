@@ -19,6 +19,7 @@
             android:text="Amount:" />
 
         <EditText
+            android:id="@+id/amount_recieved"
             android:layout_weight="3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -40,6 +41,7 @@
             android:text="Recieved From:" />
 
         <EditText
+            android:id="@+id/recieved_from"
             android:layout_weight="3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -58,29 +60,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="Deduct From:" />
+            android:text="Add To:" />
 
-        <RadioGroup
-            android:layout_weight="3"
+        <ToggleButton
+            android:id="@+id/add_to"
+            android:textOff="Spendable"
+            android:textOn="Non-Spendable"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Spendable" />
-
-            <RadioButton
-                android:checked="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Non-Spendable" />
-        </RadioGroup>
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 
     <Button
+        android:id="@+id/recieve_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Recieve" />
