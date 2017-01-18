@@ -1,6 +1,8 @@
 package com.example.akanshugupta9.pomoma;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -64,15 +66,28 @@ public class HistoryCustomAdapter extends BaseAdapter {
         View rowView;
         rowView = inflater.inflate(R.layout.history_list, null);
         if(getCount()!=0) {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            String den = prefs.getString("denomination_preference", "Rs.");
             holder.amountTv = (TextView) rowView.findViewById(R.id.amount);
             holder.summaryTv = (TextView) rowView.findViewById(R.id.summary);
             holder.dateTv = (TextView) rowView.findViewById(R.id.date);
             holder.categoryTv = (TextView) rowView.findViewById(R.id.category);
-            holder.amountTv.setText(Float.toString(amountList.get(position)));
+            holder.amountTv.setText(Float.toString(amountList.get(position))+den);
             holder.summaryTv.setText(summaryList.get(position));
             String[] tmp = dateList.get(position).split(" ");
             holder.dateTv.setText(tmp[0]+" "+tmp[1]+" "+tmp[2]);
-            holder.categoryTv.setText(Integer.toString(categoryList.get(position)));
+            int tmp1 = categoryList.get(position);
+            String tmp2;
+            if(tmp1 == 0){
+                tmp2 = "Spendable";
+            }else {
+                tmp2 = "Non-Spendable";
+            }
+            if(amountList.get(position) >= 0){
+                holder.categoryTv.setText("Added to "+tmp2);
+            }else {
+                holder.categoryTv.setText("Spent from "+tmp2);
+            }
         }
         return rowView;
     }

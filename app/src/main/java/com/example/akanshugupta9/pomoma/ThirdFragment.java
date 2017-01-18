@@ -1,6 +1,7 @@
 package com.example.akanshugupta9.pomoma;
 
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -33,16 +34,24 @@ public class ThirdFragment extends Fragment {
         recieveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DBHelper dbHelper = new DBHelper(getContext());
                 EditText amountEt = (EditText)v.findViewById(R.id.amount_recieved);
-                Float amount = Float.valueOf(amountEt.getText().toString());
-                ToggleButton deductFromTb = (ToggleButton)v.findViewById(R.id.add_to);
-                Integer deductFrom;
-                if (deductFromTb.isChecked()) deductFrom = 1;
-                else deductFrom = 0;
                 EditText summaryEt = (EditText)v.findViewById(R.id.recieved_from);
-                if(dbHelper.insertTransaction(amount, deductFrom, summaryEt.getText().toString(), String.valueOf(new Date()))){
-                    Toast.makeText(getContext(), "Data Updated...", Toast.LENGTH_SHORT);
+                if(amountEt.getText().toString().trim().equals("")){
+                    Snackbar.make(v, "What! You didn't recieve any amount.", Snackbar.LENGTH_LONG).show();
+                }else if(summaryEt.getText().toString().trim().equals("")){
+                    Snackbar.make(v, "C'mon! Tell me, who is this secret sender?", Snackbar.LENGTH_LONG).show();
+                }else {
+                    DBHelper dbHelper = new DBHelper(getContext());
+                    Float amount = Float.valueOf(amountEt.getText().toString());
+                    ToggleButton deductFromTb = (ToggleButton) v.findViewById(R.id.add_to);
+                    Integer deductFrom;
+                    if (deductFromTb.isChecked()) deductFrom = 1;
+                    else deductFrom = 0;
+                    if (dbHelper.insertTransaction(amount, deductFrom, summaryEt.getText().toString(), String.valueOf(new Date()))) {
+                        amountEt.setText("");
+                        summaryEt.setText("");
+                        Snackbar.make(v, "Money has been added. Start spendig it now.", Snackbar.LENGTH_LONG).show();
+                    }
                 }
             }
         });

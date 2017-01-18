@@ -2,25 +2,33 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_green_dark"
+    android:background="@android:color/holo_green_light"
+    android:paddingTop="@dimen/activity_horizontal_margin"
+    android:paddingBottom="@dimen/activity_horizontal_margin"
+    android:paddingLeft="@dimen/activity_vertical_margin"
+    android:paddingRight="@dimen/activity_vertical_margin"
     android:gravity="center"
     android:orientation="vertical">
 
     <LinearLayout
-        android:weightSum="4"
+        android:weightSum="3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <TextView
+            android:textColor="@android:color/white"
+            android:textSize="16dp"
+            android:textStyle="bold"
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Amount:" />
 
         <EditText
+            android:textColor="@android:color/white"
             android:id="@+id/amount_recieved"
-            android:layout_weight="3"
+            android:layout_weight="2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
@@ -35,14 +43,19 @@
         android:orientation="horizontal">
 
         <TextView
+            android:textColor="@android:color/white"
+            android:textSize="16dp"
+            android:textStyle="bold"
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Recieved From:" />
 
         <EditText
+            android:textColor="@android:color/white"
             android:id="@+id/recieved_from"
             android:layout_weight="3"
+            android:maxLength="140"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:maxLines="1"/>
@@ -50,12 +63,15 @@
     </LinearLayout>
 
     <LinearLayout
-        android:weightSum="4"
+        android:weightSum="2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <TextView
+            android:textColor="@android:color/white"
+            android:textSize="16dp"
+            android:textStyle="bold"
             android:layout_weight="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -63,6 +79,9 @@
             android:text="Add To:" />
 
         <ToggleButton
+            android:background="@android:color/holo_green_dark"
+            android:textColor="@android:color/white"
+            android:layout_weight="1"
             android:id="@+id/add_to"
             android:textOff="Spendable"
             android:textOn="Non-Spendable"
@@ -72,6 +91,11 @@
     </LinearLayout>
 
     <Button
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:background="@android:color/holo_green_dark"
+        android:textColor="@android:color/white"
+        android:textSize="16dp"
+        android:textStyle="bold"
         android:id="@+id/recieve_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

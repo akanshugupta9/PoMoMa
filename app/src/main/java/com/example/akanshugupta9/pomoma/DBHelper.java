@@ -82,4 +82,26 @@ public class DBHelper extends SQLiteOpenHelper {
         }
         return td;
     }
+
+    public float getSpendable(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res = db.rawQuery("select sum(amount) as amount from transactions where type is 0", null);
+        if(res!=null) {
+            res.moveToFirst();
+            return res.getFloat(res.getColumnIndex(TRANSACTION_COLUMN_AMOUNT));
+        }else{
+            return 0;
+        }
+    }
+
+    public float getNonSpendable(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res = db.rawQuery("select sum(amount) as amount from transactions where type is 1", null);
+        if(res!=null) {
+            res.moveToFirst();
+            return res.getFloat(res.getColumnIndex(TRANSACTION_COLUMN_AMOUNT));
+        }else{
+            return 0;
+        }
+    }
 }

@@ -15,7 +15,7 @@ public class DefaultFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.second_frag, container, false);
+        View v = inflater.inflate(R.layout.default_frag, container, false);
 
         return v;
     }

@@ -26,23 +26,28 @@ public class FourthFragment extends Fragment {
     ArrayList<String> summaryList;
     ArrayList<String> dateList;
     ArrayList<Integer> categoryList;
+    View v;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fourth_frag, container, false);
-
         context=getContext();
+        DBHelper dbHelper = new DBHelper(context);
+        if(dbHelper.numberOfRows()!=0) {
+            v = inflater.inflate(R.layout.fourth_frag, container, false);
+            try {
+                getDataFromDatabase();
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
 
-        try {
-            getDataFromDatabase();
-        } catch (ParseException e) {
-            e.printStackTrace();
+            lv=(ListView) v.findViewById(R.id.listView);
+            lv.setAdapter(new HistoryCustomAdapter((MainActivity) getActivity(), amountList, categoryList, summaryList, dateList));
+
+            return v;
+        }else{
+            v = inflater.inflate(R.layout.default_frag, container, false);
+            return v;
         }
-
-        lv=(ListView) v.findViewById(R.id.listView);
-        lv.setAdapter(new HistoryCustomAdapter((MainActivity) getActivity(), amountList, categoryList, summaryList, dateList));
-
-        return v;
     }
 
     public void getDataFromDatabase() throws ParseException {
