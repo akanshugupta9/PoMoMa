@@ -99,6 +99,6 @@
         android:id="@+id/recieve_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Recieve" />
+        android:text="Add Money" />
 
 </LinearLayout>

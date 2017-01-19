@@ -18,6 +18,7 @@ import java.util.Locale;
 
 import static android.R.attr.format;
 import static android.R.attr.name;
+import static com.example.akanshugupta9.pomoma.R.id.date;
 
 /**
  * Created by akanshugupta9 on 17/1/17.
@@ -52,13 +53,16 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     public boolean insertTransaction (Float amount, Integer type, String summary, String date) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("amount", amount);
-        contentValues.put("type", type);
-        contentValues.put("summary", summary);
-        contentValues.put("date", date);
-        db.insert("transactions", null, contentValues);
+        String[] tmp = date.split(" ");
+        date = tmp[0]+" "+tmp[1]+" "+tmp[2]+" "+tmp[5];
+        date = date.trim();
+            SQLiteDatabase db = this.getWritableDatabase();
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("amount", amount);
+            contentValues.put("type", type);
+            contentValues.put("summary", summary);
+            contentValues.put("date", date);
+            db.insert("transactions", null, contentValues);
         return true;
     }
 
@@ -85,7 +89,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
     public float getSpendable(){
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res = db.rawQuery("select sum(amount) as amount from transactions where type is 0", null);
+        Cursor res = db.rawQuery("select sum(amount) as amount from transactions where type is not 1", null);
         if(res!=null) {
             res.moveToFirst();
             return res.getFloat(res.getColumnIndex(TRANSACTION_COLUMN_AMOUNT));

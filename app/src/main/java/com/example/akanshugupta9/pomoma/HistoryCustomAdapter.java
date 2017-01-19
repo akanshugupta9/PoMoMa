@@ -74,11 +74,11 @@ public class HistoryCustomAdapter extends BaseAdapter {
             holder.categoryTv = (TextView) rowView.findViewById(R.id.category);
             holder.amountTv.setText(Float.toString(amountList.get(position))+den);
             holder.summaryTv.setText(summaryList.get(position));
-            String[] tmp = dateList.get(position).split(" ");
-            holder.dateTv.setText(tmp[0]+" "+tmp[1]+" "+tmp[2]);
+            //String[] tmp = dateList.get(position).split(" ");
+            holder.dateTv.setText(dateList.get(position));
             int tmp1 = categoryList.get(position);
             String tmp2;
-            if(tmp1 == 0){
+            if(tmp1 != 1){
                 tmp2 = "Spendable";
             }else {
                 tmp2 = "Non-Spendable";

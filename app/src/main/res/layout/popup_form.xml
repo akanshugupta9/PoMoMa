@@ -23,7 +23,7 @@
         android:textSize="16dp"
         android:textColor="@android:color/white"
         android:background="@android:color/holo_blue_dark"
-        android:textOn="Recieve"
+        android:textOn="Add Money"
         android:textOff="Spend"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
