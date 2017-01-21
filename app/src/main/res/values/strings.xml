@@ -1,3 +1,30 @@
 <resources>
     <string name="app_name">PoMoMa</string>
+<!--</resources>
+
+<resources>
+<string name="app_name">Intro Slider</string>-->
+<string name="title_activity_welcome">Home Screen</string>
+<string name="next">NEXT</string>
+<string name="skip">SKIP</string>
+<string name="start">GOT IT</string>
+
+<string name="slide_1_title">Limit Expenses</string>
+<string name="slide_1_desc">Go to settings and add Pocket Money for limiting your expenses!</string>
+
+<string name="slide_2_title">Add Expenses</string>
+<string name="slide_2_desc">Add data about your purchase and money received!</string>
+
+<string name="slide_3_title">Track History</string>
+<string name="slide_3_desc">View your previous transactions on a single click!</string>
+
+<string name="slide_4_title">Leave Worries</string>
+<string name="slide_4_desc">Leave worries about your money and Enjoy your life!</string>
+
+    <string name="developer_title">Akanshu Gupta</string>
+    <string name="developer_desc">Graduate student at Indian Institute of Information Technology-Allahabad. A web and App Development Enthusiast.</string>
+    <string name="website"><u>akanshu.ml</u></string>
+
+<string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> welcome slider -> clear data</string>
+<string name="play_again">Play Again</string>
 </resources>

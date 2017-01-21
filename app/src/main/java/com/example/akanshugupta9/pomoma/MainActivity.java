@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
                             EditText amountEt = (EditText)customView.findViewById(R.id.amount);
                             EditText summaryEt = (EditText)customView.findViewById(R.id.summary);
                             if(amountEt.getText().toString().trim().equals("")){
-                                Snackbar.make(mRelativeLayout, "What! You didn't recieve any amount.", Snackbar.LENGTH_LONG).show();
+                                Snackbar.make(mRelativeLayout, "What! You didn't receive any amount.", Snackbar.LENGTH_LONG).show();
                             }else if(summaryEt.getText().toString().trim().equals("")){
                                 Snackbar.make(mRelativeLayout, "C'mon! Tell me, who is this secret sender?", Snackbar.LENGTH_LONG).show();
                             }else {
@@ -143,6 +143,7 @@ public class MainActivity extends AppCompatActivity {
                                     amountEt.setText("");
                                     summaryEt.setText("");
                                     Snackbar.make(mRelativeLayout, "Money has been added. Start spendig it now.", Snackbar.LENGTH_LONG).show();
+                                    mPopupWindow.dismiss();
                                 }
                             }
                         }else{
@@ -163,10 +164,11 @@ public class MainActivity extends AppCompatActivity {
                                     amountEt.setText("");
                                     summaryEt.setText("");
                                     Snackbar.make(mRelativeLayout, "Data has been added. Go spend more.", Snackbar.LENGTH_LONG).show();
+                                    mPopupWindow.dismiss();
                                 }
                             }
                         }
-                        mPopupWindow.dismiss();
+
                     }
                 });
 
@@ -203,6 +205,8 @@ public class MainActivity extends AppCompatActivity {
             case R.id.settings:
                 startActivity(new Intent(this, SettingsActivity.class));
                 return true;
+            case R.id.about:
+                startActivity(new Intent(this, AboutActivity.class));
             default:
                 return super.onOptionsItemSelected(item);
         }

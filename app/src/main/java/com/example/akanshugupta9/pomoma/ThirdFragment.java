@@ -37,7 +37,7 @@ public class ThirdFragment extends Fragment {
                 EditText amountEt = (EditText)v.findViewById(R.id.amount_recieved);
                 EditText summaryEt = (EditText)v.findViewById(R.id.recieved_from);
                 if(amountEt.getText().toString().trim().equals("")){
-                    Snackbar.make(v, "What! You didn't recieve any amount.", Snackbar.LENGTH_LONG).show();
+                    Snackbar.make(v, "What! You didn't receive any amount.", Snackbar.LENGTH_LONG).show();
                 }else if(summaryEt.getText().toString().trim().equals("")){
                     Snackbar.make(v, "C'mon! Tell me, who is this secret sender?", Snackbar.LENGTH_LONG).show();
                 }else {

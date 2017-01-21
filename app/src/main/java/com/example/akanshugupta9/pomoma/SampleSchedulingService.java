@@ -115,7 +115,7 @@ public class SampleSchedulingService extends IntentService {
 
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)
-                        .setSmallIcon(R.mipmap.ic_launcher)
+                        .setSmallIcon(R.drawable.logo)
                         .setContentTitle("PoMoMa")
                         .setStyle(new NotificationCompat.BigTextStyle()
                                 .bigText(msg))

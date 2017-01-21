@@ -12,6 +12,8 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
@@ -84,6 +86,10 @@ public class DBHelper extends SQLiteOpenHelper {
             td.type.add(res.getInt(res.getColumnIndex(TRANSACTION_COLUMN_TYPE)));
             res.moveToNext();
         }
+        Collections.reverse(td.amount);
+        Collections.reverse(td.summary);
+        Collections.reverse(td.date);
+        Collections.reverse(td.type);
         return td;
     }
 

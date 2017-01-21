@@ -1,98 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/rl_custom_layout"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:elevation="24dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="2dp"
-    android:background="@android:color/holo_blue_light"
-    >
-
-    <ImageButton
-        android:id="@+id/ib_close"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@android:drawable/ic_menu_close_clear_cancel"
-        android:background="@null"
-        />
-
-    <ToggleButton
-        android:id="@+id/send_recieve"
-        android:textSize="16dp"
-        android:textColor="@android:color/white"
-        android:background="@android:color/holo_blue_dark"
-        android:textOn="Add Money"
-        android:textOff="Spend"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    android:fillViewport="true">
 
     <LinearLayout
-        android:weightSum="3"
-        android:orientation="horizontal"
+        android:id="@+id/rl_custom_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="2dp"
+        android:background="@android:color/holo_blue_light"
+        >
 
-        <TextView
+        <ImageButton
+            android:id="@+id/ib_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/ic_menu_close_clear_cancel"
+            android:background="@null"
+            />
+
+        <ToggleButton
+            android:padding="@dimen/activity_horizontal_margin"
+            android:id="@+id/send_recieve"
+            android:textSize="16dp"
             android:textColor="@android:color/white"
-            android:text="Amount:"
-            android:layout_weight="1"
+            android:background="@android:color/holo_blue_dark"
+            android:textOn="Add Money"
+            android:textOff="Spend"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
-        <EditText
-            android:id="@+id/amount"
+        <LinearLayout
+            android:weightSum="3"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textColor="@android:color/white"
+                android:text="Amount:"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/amount"
+                android:textColor="@android:color/white"
+                android:layout_weight="2"
+                android:inputType="numberDecimal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:weightSum="3"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:textColor="@android:color/white"
+                android:text="Summary:"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/summary"
+                android:textColor="@android:color/white"
+                android:layout_weight="2"
+                android:inputType="text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <ToggleButton
+            android:padding="@dimen/activity_horizontal_margin"
+            android:id="@+id/spendable_non_spendable"
+            android:textSize="16dp"
             android:textColor="@android:color/white"
-            android:layout_weight="2"
-            android:inputType="numberDecimal"
+            android:background="@android:color/holo_blue_dark"
+            android:textOff="Spendable"
+            android:textOn="Non-Spendable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:padding="@dimen/activity_horizontal_margin"
+            android:id="@+id/submit"
+            android:textStyle="bold"
+            android:textSize="16dp"
+            android:textColor="@android:color/white"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:background="@android:color/holo_blue_dark"
+            android:text="Done"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
     </LinearLayout>
 
-    <LinearLayout
-        android:weightSum="3"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:textColor="@android:color/white"
-            android:text="Summary:"
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <EditText
-            android:id="@+id/summary"
-            android:textColor="@android:color/white"
-            android:layout_weight="2"
-            android:inputType="text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
-
-    <ToggleButton
-        android:id="@+id/spendable_non_spendable"
-        android:textSize="16dp"
-        android:textColor="@android:color/white"
-        android:background="@android:color/holo_blue_dark"
-        android:textOff="Spendable"
-        android:textOn="Non-Spendable"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <Button
-        android:id="@+id/submit"
-        android:textStyle="bold"
-        android:textSize="16dp"
-        android:textColor="@android:color/white"
-        android:layout_margin="@dimen/activity_horizontal_margin"
-        android:background="@android:color/holo_blue_dark"
-        android:text="Done"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-</LinearLayout>
+</ScrollView>
